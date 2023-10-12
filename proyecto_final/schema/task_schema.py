@@ -6,4 +6,4 @@ class TaskSchema(BaseModel):
     id: Optional[int]
     titulo: str
     descripcion: str
-    fecha_ven: date
+    fecha_vencimiento: date

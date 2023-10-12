@@ -8,11 +8,25 @@ conn = TaskConnection()
 
 @app.get("/")
 def root():
-    conn
-    return {"Hi, i am fastAPI"}
+    items = []
+    for data in conn.read_all():
+        #print(data)
+        dictionary = {}
+        dictionary["id"] = data[0]
+        dictionary["titulo"] = data[1]
+        dictionary["descripcion"] = data[2]
+        dictionary["fecha_vencimiento"] = data[3]
+        items.append(dictionary)
+    return items
 
 @app.post("/api/insert")
 def insert(task_data:TaskSchema):
     data = task_data.dict()
     data.pop("id")
-    print(data)
+    #print(data)
+    conn.write(data)
+
+
+@app.delete("/api/delete/{id}")
+def delete(id:str):
+    conn.delete(id)

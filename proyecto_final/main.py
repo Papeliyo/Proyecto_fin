@@ -26,6 +26,13 @@ def insert(task_data:TaskSchema):
     #print(data)
     conn.write(data)
 
+@app.put("/api/update/{id}")
+def update(task_data:TaskSchema, id:str):
+    data = task_data.dict()
+    data["id"] = id
+    #print(data)
+    conn.update(data)
+
 
 @app.delete("/api/delete/{id}")
 def delete(id:str):

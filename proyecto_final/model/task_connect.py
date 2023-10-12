@@ -21,6 +21,11 @@ class TaskConnection():
         INSERT INTO "task"(titulo, descripcion, fecha_vencimiento) VALUES(%(titulo)s, %(descripcion)s, %(fecha_vencimiento)s)""", data)
         self.conn.commit()
 
+    def update(self, data):
+        with self.conn.cursor() as cur:
+            cur.execute(""" UPDATE "task" SET titulo = %(titulo)s, descripcion = %(descripcion)s, fecha_vencimiento = %(fecha_vencimiento)s WHERE id = %(id)s """, data)
+            self.conn.commit()
+
     def delete(self, id):
         with self.conn.cursor() as cur:
             cur.execute(""" DELETE FROM "task" WHERE id = %s """, (id,))

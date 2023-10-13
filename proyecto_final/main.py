@@ -5,7 +5,6 @@ from schema.task_schema import TaskSchema
 app = FastAPI()
 conn = TaskConnection()
 
-
 @app.get("/")
 def root():
     items = []
@@ -16,6 +15,7 @@ def root():
         dictionary["titulo"] = data[1]
         dictionary["descripcion"] = data[2]
         dictionary["fecha_vencimiento"] = data[3]
+        dictionary["estado"] = data[4]
         items.append(dictionary)
     return items
 
@@ -26,14 +26,14 @@ def insert(task_data:TaskSchema):
     #print(data)
     conn.write(data)
 
-@app.put("/api/update/{id}")
-def update(task_data:TaskSchema, id:str):
+@app.put("/api/update/{titulo}")
+def update(task_data:TaskSchema, titulo:str):
     data = task_data.dict()
-    data["id"] = id
+    data["titulo"] = titulo
     #print(data)
     conn.update(data)
 
 
-@app.delete("/api/delete/{id}")
-def delete(id:str):
-    conn.delete(id)
+@app.delete("/api/delete/{titulo}")
+def delete(titulo:str):
+    conn.delete(titulo)

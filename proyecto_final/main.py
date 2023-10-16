@@ -5,7 +5,7 @@ from schema.task_schema import TaskSchema
 app = FastAPI()
 conn = TaskConnection()
 
-@app.get("/")
+@app.get("/api/view")
 def root():
     items = []
     for data in conn.read_all():

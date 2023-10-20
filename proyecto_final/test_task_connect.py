@@ -16,24 +16,6 @@ def test_insert_valid_data():
     # Call the insert function
     insert(task_data)
 
-
-# # Inserting a new task with empty field
-# def test_insert_new_task_with_empty_title():
-
-#     # Create a task with an invalid date (fecha vencimiento en el pasado)
-#     invalid_date = date.today() - timedelta(days=1)
-
-#     # Create a task with empty title
-#     task_data = TaskSchema(
-#         titulo="",
-#         descripcion="",
-#         fecha_vencimiento=invalid_date,
-#         estado=""
-#     )
-
-#     # Call the insert function
-#     insert(task_data)
-
 # Update a task with valid data
 def test_update_valid_data():
 
@@ -53,3 +35,4 @@ def test_delete_existing_task():
 
     # Call the delete function with an existing task title
     delete("titulo5")
+

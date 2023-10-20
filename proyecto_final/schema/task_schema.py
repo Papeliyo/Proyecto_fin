@@ -1,3 +1,4 @@
+from dataclasses import Field
 from datetime import date
 from pydantic import BaseModel
 from typing import Optional
@@ -8,3 +9,4 @@ class TaskSchema(BaseModel):
     descripcion: str
     fecha_vencimiento: date
     estado: str
+

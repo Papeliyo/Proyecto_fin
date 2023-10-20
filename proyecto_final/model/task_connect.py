@@ -23,6 +23,11 @@ class TaskConnection():
     def update(self, data):
         with self.conn.cursor() as cur:
             cur.execute(""" UPDATE "task" SET descripcion = %(descripcion)s, fecha_vencimiento = %(fecha_vencimiento)s, estado = %(estado)s WHERE titulo = %(titulo)s """, data)
+            self.conn.commit()    
+    
+    def update_state(self, data):
+        with self.conn.cursor() as cur:
+            cur.execute(""" UPDATE "task" SET estado = %(estado)s WHERE titulo = %(titulo)s """, data)
             self.conn.commit()
 
     def delete(self, titulo):

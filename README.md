@@ -1,4 +1,5 @@
 # Proyecto final
+Este proyecto se enfoca en la creación de un microservicio de Lista de Tareas (To-Do List) utilizando FastAPI, una biblioteca de alto rendimiento para la construcción de APIs en Python. Este microservicio permitirá realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) en las tareas, mejorando la eficiencia de su gestión. FastAPI proporciona la base tecnológica para desarrollar un sistema de gestión de tareas ágil y eficiente, con la ventaja adicional de un aspecto visual intuitivo para el manejo de las operaciones CRUD a través de FastAPI Doc.
 
 ## Como visualizar
 Para realizar la visualización de los datos, accede al siguiente enlace [FastAPI Doc](http://127.0.0.1:8000/docs), ejecuta "Try it out" y luego "Execute".
